@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#FFE1FF] ">
+    <div class="container min-h-screen w-full px-10 py-5 relative">
+        <main class="flex justify-between w-full h-screen">
+        <div class="mt-48 max-w-4xl">
+            <h1 class="text-6xl font-semibold leading-normal italic ...">Doctor  <br> Service Report Management</h1>
+            <p class="font-thin">Manage your doctor reports efficiently and securely. 
+                Submit new reports, view existing ones, and keep track of your healthcare journey.</p>
+                <button id="openModal" class="px-4 py-2 bg-[#E4B1F0] text-[#433878] rounded-3xl items-center my-11 mx-72">Submit Report</button>
+        </div>
+        <img src="../public/img/cartoon-doctor-5022797_1280-removebg-preview.png" class="w-full xl:w-1/2 ">
+    </main>
+    </div>
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center items-hidden">
+        <div class="bg-[#FFE1FF] rounded-lg p-6 w-96">
+            <h2 class="text-xl font-semibold mb-4">Submit Report</h2>
+            <form id="popupForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700"> </label>
+                    <input type="text" id="name" class="mt-1 block w-full border border-[#FF] rounded-md p-2" required>
+
+                  
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" id="closeModal" class="px-4 py-2 bg-gray-300 rounded mr-2">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-[#E4B1F0] text-green-900 rounded">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+const modal = document.getElementById("modal");
+const openModalBtn = document.getElementById("openModal");
+const closeModalBtn = document.getElementById("closeModal");
+const form = document.getElementById("popupForm");
+openModalBtn.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+});
+closeModalBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+});
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    console.log("Name:", name);
+    modal.classList.add("hidden");
+    form.reset(); 
+});
+    </script>
+</body>
+</html>
